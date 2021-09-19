@@ -1,0 +1,239 @@
+@mixin f-fam ($fam, $color, $fz) {
+	font-family: $fam;
+	color: $color;
+	font-size: $fz;
+}
+
+%sub-menu{
+	position: absolute;
+	left: 9%;
+	top: 5px;
+	padding-top: 10px;
+	display: none;
+	li{
+		border-radius: 4px;
+		padding: 2px;
+		background-color: gray;
+		&:hover {
+			background-color: silver;
+			color: black;
+		}
+	}
+}
+
+%btn-slider{
+	z-index: 3;
+	display: none;
+	position: absolute;
+	left: 5%;
+	top: 50%;
+	transform: translate(0%, -100%);
+	width: 67px;
+	height: 67px;
+	border-radius: 50%;
+	background-color: #fff;
+	text-align: center;
+	padding: 18px 0px;
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+header{
+	position: relative;
+	width: 1400px;
+	height: 470px;
+	margin: 0 auto;
+	font-family: OpenSans;
+	nav {
+		width: 1400px;
+		height: 43px;
+		display: flex;
+		margin: 0 auto 36px;
+		padding: 16px 188px 14px;
+		background-color: #4cb1ca;
+		li{
+			list-style: none;
+			@include f-fam(OpenSans, #ffff, 13px);
+			margin: 0;
+			padding: 0;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+		.menu-1 {
+			width: 270px;
+			height: 13px;
+			padding: 0;
+			position: relative;
+			display: flex;
+			margin: 0;
+			li{
+				margin: 0px 8px 0px 0px;
+				.sub-menu-1{@extend %sub-menu;}
+				&:hover > .sub-menu-1{
+					display: block;
+				}
+				.sub2-menu-1{
+					@extend %sub-menu;
+					left: 53%;
+				}
+				&:hover > .sub2-menu-1{
+					display: block;
+				}
+				.down-menu{
+					border: none;
+					margin: 0px 0px 0px 4px;
+				}
+			}
+		}
+		.menu-2 {
+			margin: 0px 0px 0px 418px;
+			width: 357px;
+			height: 13px;
+			display: flex;
+			li{
+				margin: 0px 4px 0px 0px;
+				border-right: 1px solid #ffff;
+			}
+			a{
+				text-decoration: none;
+				margin: 0px 4px 0px 4px;
+				@include f-fam(OpenSans, #ffff, 13px);
+			}
+			& :last-child{
+				border-right: none;
+			}
+		}
+	}
+	h1{
+		width: 180px;
+		margin: 41px 59px 40px; 
+		text-align: justify;
+		font-size: 36px;
+		 font-weight: bold;
+		 letter-spacing: -0.9px;
+		 color: #656565;
+	}
+	.nav2{
+		position: absolute;
+		left: 17%;
+		top: 10%;
+		display: flex;
+		width: 346px;
+		margin: 49px 42px 48px 48px;
+		a{
+			display: inline-block;
+			text-decoration: none;
+			font-size: 14px;
+			color: #656565;
+			margin: 0px 8px 0px 0px;
+		}
+	}
+	.block-search{
+		display: flex;
+		width: 410px;
+		height: 29px;
+		position: absolute;
+		right: 30%;
+		top: 19%;
+		input{
+			margin: 0;
+			&::placeholder {
+				color: #b7b7b7;
+				font-size: 13px;
+			}
+		}
+		.btn-search{
+			margin: 0px 20px 0px 0px;
+			background-color: #fff;
+			border: none;
+			border-radius: 5px;
+			transition: all 0.3s ease 0s;
+			&:hover{
+				cursor: pointer;
+			}
+			&:active{
+				box-shadow: 3px 3px 5px #000;
+				transform: translate(-3px , -2px);
+				transition: all 0.3s ease 0s;
+			}
+		}
+		.icon{
+			padding: 4px;
+			margin: 0px 5px;
+			background-color: green;
+			width: 29px;
+			height: 29px;
+			border-radius: 50%;
+			&:hover{
+				cursor: pointer;
+			}
+		}
+		span{
+			margin: auto 0;
+			font-size: 14px;
+			color: #656565;
+		}
+	}
+	.slider{
+		width: 1400px;
+		height: 300px;
+		position: relative;
+		left: 0;
+		bottom: 0;
+		overflow: hidden;
+		.img-slide{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 1400px;
+			height: 300px;
+		}
+		.btn-slider-left{
+			@extend %btn-slider;
+		}
+		.btn-slider-right{
+			@extend %btn-slider;
+			left: 90%;
+		}
+		.slide-txt{
+			position: absolute;
+			left: 15%;
+			top: 30%;
+			display: inline-block;
+			color: #fff;
+			font-size: 20px;
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 3px 10px;
+		}
+		.txt2{
+			top: 40%;
+			font-weight: 700;
+			letter-spacing: 2px;
+		}
+		&:hover .btn-slider-left{
+			display: block;
+		}
+		&:hover .btn-slider-right{
+			display: block;
+		}
+		& :nth-child(3) {
+			transform: translate(100%, 0%);
+		}
+	}
+	.dote{
+		position: absolute;
+		left: 50%;
+		bottom: -8px;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		border: 2px solid silver;
+		background-color: #0012ff;
+	}
+	.dote-2{
+		left: 51%;
+		background-color: #fff;
+	}
+}

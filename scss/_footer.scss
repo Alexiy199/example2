@@ -1,0 +1,31 @@
+footer{
+	width: 1400px;
+	height: 50px;
+	display: flex;
+	justify-content: space-around;
+	background-color: #20103f;
+	margin: 0 auto;
+	@include f-fam(OpenSans, #8adcf0, 13px);
+	span{
+		margin: auto 0;
+	}
+	ul{
+		display: flex;
+		margin: auto 0;
+		li{
+			height: 15px;
+			border-right: 1px solid #8adcf0;
+			list-style: none;
+			margin: 0px 5px;
+			padding: 0px 7px 0px 0px;
+			a{
+				display: inline-block;
+				text-decoration: none;
+				@include f-fam(OpenSans, #8adcf0, 13px);
+			}
+		}
+		& :last-child{
+			border-right: none;
+		}
+	}
+}
