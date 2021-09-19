@@ -404,18 +404,28 @@ main .block-ft-glass {
   right: 15%;
   width: 233px;
   border-top: 3px solid #4cb1ca;
-  border-left: 1px solid #000;
 }
 
 main .block-ft-glass div {
   width: 233px;
+  height: 383px;
+  overflow-x: hidden;
   position: relative;
   text-align: center;
+  margin: 5px 0px;
+}
+
+main .block-ft-glass div > .img-slider-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 233px;
+  height: 333px;
 }
 
 main .block-ft-glass div .btn-check {
   position: absolute;
-  bottom: 15%;
+  bottom: 20%;
   right: 50%;
   -webkit-transform: translate(50%, 0%);
           transform: translate(50%, 0%);
@@ -434,6 +444,9 @@ main .block-ft-glass div .btn-check:hover {
 }
 
 main .block-ft-glass div .box-dote {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -461,9 +474,20 @@ main .block-ft-glass div .box-dote :first-child {
   background-color: green;
 }
 
+main .block-ft-glass div :nth-child(2) {
+  -webkit-transform: translate(100%, 0%);
+          transform: translate(100%, 0%);
+}
+
+main .block-ft-glass div :nth-child(3) {
+  -webkit-transform: translate(200%, 0%);
+          transform: translate(200%, 0%);
+}
+
 main .block-ft-glass .block-subscribe {
   width: 230px;
   text-align: center;
+  margin: 30px 0px 0px 0px;
 }
 
 main .block-ft-glass .block-subscribe .title-subscribe {
