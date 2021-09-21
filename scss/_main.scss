@@ -1,3 +1,18 @@
+%boxCart{
+	text-align: center;
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	background-color: #ffa500;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	padding: 2px 3px;
+	&:hover{
+		cursor: pointer;
+	}
+}
+
 main{
 	position: relative;
 	width: 1400px;
@@ -29,7 +44,9 @@ main{
 				height: 229px;
 				margin:10px 10px 0px 0px;
 				line-height: 17px;
+				cursor: pointer;
 				.glass-img{
+					pointer-events: none;
 					width: 233px;
 					height: 175px;
 					margin: 0;
@@ -43,17 +60,9 @@ main{
 					@include f-fam(OpenSans, #7db122, 18px);
 				}
 				.box-cart{
-					text-align: center;
-					position: absolute;
-					bottom: 8px;
-					right: 8px;
-					background-color: #ffa500;
-					width: 30px;
-					height: 30px;
-					border-radius: 50%;
-					padding: 2px 3px;
-					&:hover{
-						cursor: pointer;
+					@extend %boxCart;
+					.cart{
+						pointer-events: none;
 					}
 				}
 			}
@@ -256,6 +265,71 @@ main{
 			}
 			& :nth-child(8){
 				transform: translate(-105px, 0px);
+			}
+		}
+	}
+}
+
+/* MODAL WINDOW */
+
+.overlay{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 4;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100vw;
+	height: 100%;
+	.discription-product{
+		position: relative;
+		text-align: center;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 50vw;
+		background-color: #fff;
+		> img{
+			float: left;
+			margin: 0px 20px 0px 0px;
+		}
+		.discription-title{
+			@include f-fam(OpenSans, #000, 25px);
+			font-weight: 700;
+			letter-spacing: 2px;
+			margin: 0 auto;
+		}
+		.discription-txt{
+		@include f-fam(OpenSans, #000, 14px);
+		}
+		.block-info-more{
+			display: flex;
+			justify-content: space-around;
+			width: 200px;
+			position: absolute;
+			bottom: 5px;
+			right: 30%;
+			span{
+				display: inline-block;
+				background-color: #4a9f3a;
+				padding: 1px 4px;
+			}
+			div{
+				@extend %boxCart;
+				position: static;
+				img{
+					pointer-events: none;
+				}
+			}
+		}
+		.close{
+			position: absolute;
+			top: 0;
+			right: 4px;
+			font-size: 22px;
+			font-weight: 400;
+			&:hover{
+				cursor: pointer;
 			}
 		}
 	}
