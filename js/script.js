@@ -94,16 +94,15 @@ const glassesSection = document.querySelector(".glasses"),
 let countCart = 0;
 
 const checkClick = function (e) {
-  console.log("check click");
   if (e.target.dataset.elemgl === "addtocart") {
-    console.log(e.target.children[0].dataset);
+    // console.log(e.target.children[0].dataset);
     let blockImgCard = e.srcElement;
 
     if (e.target.children[0].dataset.add === "added") {
-      console.log("ADDED");
       e.target.children[0].remove();
       countCart--;
-      cartElem.innerText = `CART (${countCart})`;
+      if (countCart <= 0) cartElem.classList.remove("in-cart");
+      cartElem.innerText = `${countCart}`;
       blockImgCard.style = "background: #ffa500;";
       blockImgCard.insertAdjacentHTML(
         "afterbegin",
@@ -119,8 +118,9 @@ const checkClick = function (e) {
       "afterbegin",
       `<img src="./img/add.png" alt="img" width="25px" height="25px" data-add="added" class="cart">`
     );
+    cartElem.classList.add("in-cart");
     countCart++;
-    cartElem.innerText = `CART (${countCart})`;
+    cartElem.innerText = `${countCart}`;
     return;
   }
 };
@@ -129,17 +129,29 @@ const addToCart = (e) => {
   checkClick(e);
 
   if (e.target.dataset.elemgl === "cardglasses") {
-    console.log(e.target.children[3].innerText);
-    const imgSrc = e.target.children[0].src;
+    document.body.classList.add("block-scroll"); //block scroll
+    let imgSrc,
+      txtPrice = "";
 
-    const overlay = `<div class="overlay">
-	<div class="discription-product">
+    if (e.target.children[0].dataset.mark === "sale") {
+      imgSrc = e.target.children[2].src;
+      txtPrice = e.target.children[5].innerText;
+    } else if (e.target.children[0].dataset.mark === "new") {
+      imgSrc = e.target.children[1].src;
+      txtPrice = e.target.children[4].innerText;
+    } else {
+      imgSrc = e.target.children[0].src;
+      txtPrice = e.target.children[3].innerText;
+    }
+
+    let overlay = `<div class="overlay">
+	<div class="description-product">
 		<span class="close">&#10060;</span>
 		<img src="${imgSrc}" alt="img">
-		<span class="discription-title">Discription</span> <br> <br>
-		<span class="discripton-txt">Здксь доджно быть описание, но это только пример =)</span> 
+		<span class="description-title">Description</span> <br> <br>
+		<span class="discripton-txt">Здесь доджно быть описание, но это только пример =)</span> 
 	<div class="block-info-more"> 
-		<span>${e.target.children[3].innerText}</span>
+		<span>${txtPrice}</span>
 		<div class="box-cart" data-elemgl="addtocart">
 			<img src="./img/cartpng.png" alt="img" width="20px" height="20px" class="cart">
 		</div>
@@ -148,16 +160,91 @@ const addToCart = (e) => {
 	</div>`;
 
     document.body.insertAdjacentHTML("afterbegin", overlay);
+
     const blockDiscription = document
-      .querySelector(".discription-product")
+      .querySelector(".description-product")
       .addEventListener("click", (evt) => checkClick(evt));
 
+    overlay = document.querySelector(".overlay");
+    overlay.addEventListener("click", () => {
+      document.body.classList.remove("block-scroll"); //unlock scroll
+      overlay.remove();
+    });
     const close = document
       .querySelector(".close")
-      .addEventListener("click", () => {
-        console.log("close");
+      .addEventListener("click", (blockDiscription) => {
+        document.body.classList.remove("block-scroll"); //unlock scroll
+        blockDiscription.srcElement.parentElement.parentElement.remove();
       });
   }
 };
 
 glassesSection.addEventListener("click", addToCart);
+
+//========= Sale =======
+const cards = document.querySelectorAll(".elem-gl");
+console.log(cards[2].children[3].innerText);
+
+function createMark(property) {
+  property.price = property.card.children[3].innerText;
+  property.price = property.price.slice(1, property.price.lenght);
+
+  const saleActive = () => {
+    property.card.children[3].style =
+      "text-decoration: line-through; color: gray;";
+    let salePrice = `<span class="sale-price">$ ${
+      property.price - property.price * property.percent
+    } </span>`;
+    return salePrice;
+  };
+
+  let blockMark = `<div class="${property.mark}" data-mark="${property.mark}">
+		<span>${property.mark}</span>
+	</div>${property.mark === "sale" ? saleActive() : ""}`;
+
+  property.card.insertAdjacentHTML("afterbegin", blockMark);
+}
+
+const sale1 = {
+  price: 0,
+  percent: 0.11,
+  card: cards[2],
+  mark: "sale",
+};
+
+createMark(sale1);
+
+const sale2 = {
+  price: 0,
+  percent: 0.21,
+  card: cards[7],
+  mark: "sale",
+};
+
+createMark(sale2);
+
+const newGl = {
+  price: 0,
+  percent: 0,
+  card: cards[15],
+  mark: "new",
+};
+createMark(newGl);
+
+const newGl2 = {
+  price: 0,
+  percent: 0,
+  card: cards[16],
+  mark: "new",
+};
+
+createMark(newGl2);
+
+const newGl3 = {
+  price: 0,
+  percent: 0,
+  card: cards[17],
+  mark: "new",
+};
+
+createMark(newGl3);

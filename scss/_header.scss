@@ -171,9 +171,21 @@ header{
 			}
 		}
 		span{
-			margin: auto 0;
-			font-size: 14px;
-			color: #656565;
+			display: block;
+			width: 20px;
+			height: 20px;
+			background-color: rgba(192, 192, 192, 0.6);
+			text-align: center;
+			border-radius: 50%;
+			padding: 2px 0px;
+			margin: 0;
+			@include f-fam(OpenSans, #fff, 14px);
+			transform: translate(-45%, -3%);
+		}
+		.in-cart{
+			background-color: red;
+			@include f-fam(OpenSans, #fff, 14px);
+			font-weight: 700;
 		}
 	}
 	.slider{
