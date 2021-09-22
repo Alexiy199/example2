@@ -162,15 +162,18 @@ const addToCart = (e) => {
     document.body.insertAdjacentHTML("afterbegin", overlay);
 
     const overlayHtml = document.querySelector(".overlay");
-    overlayHtml.addEventListener("click", () => overlayHtml.remove());
+    overlayHtml.addEventListener("click", () => {
+      document.body.classList.remove("block-scroll"); //unlock scroll
+      overlayHtml.remove();
+    });
 
     const blockDescription = document.querySelector(".description-product");
     blockDescription.addEventListener("click", function (eBlock) {
       eBlock.stopPropagation();
+      document.body.classList.remove("block-scroll"); //unlock scroll
       if (eBlock.target.dataset.close === "close") overlayHtml.remove();
 
       checkClick(eBlock);
-      console.log("click block des");
     });
   }
 };
