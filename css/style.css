@@ -399,7 +399,7 @@ main .glasses .block-ft-product .elem-gl {
   cursor: pointer;
 }
 
-main .glasses .block-ft-product .elem-gl .glass-img {
+main .glasses .block-ft-product .elem-gl > .glass-img {
   pointer-events: none;
   width: 233px;
   height: 175px;
@@ -420,7 +420,7 @@ main .glasses .block-ft-product .elem-gl .price-gl {
   font-size: 18px;
 }
 
-main .glasses .block-ft-product .elem-gl .box-cart .cart {
+main .glasses .block-ft-product .elem-gl .box-cart > .cart {
   pointer-events: none;
 }
 

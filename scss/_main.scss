@@ -46,7 +46,7 @@ main{
 				margin:10px 10px 0px 0px;
 				line-height: 17px;
 				cursor: pointer;
-				.glass-img{
+				> .glass-img{
 					pointer-events: none;
 					width: 233px;
 					height: 175px;
@@ -62,7 +62,7 @@ main{
 				}
 				.box-cart{
 					@extend %boxCart;
-					.cart{
+					> .cart{
 						pointer-events: none;
 					}
 				}

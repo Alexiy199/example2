@@ -144,9 +144,9 @@ const addToCart = (e) => {
       txtPrice = e.target.children[3].innerText;
     }
 
-    let overlay = `<div class="overlay">
+    const overlay = `<div class="overlay">
 	<div class="description-product">
-		<span class="close">&#10060;</span>
+		<span class="close" data-close="close">&#10060;</span>
 		<img src="${imgSrc}" alt="img">
 		<span class="description-title">Description</span> <br> <br>
 		<span class="discripton-txt">Здесь доджно быть описание, но это только пример =)</span> 
@@ -161,21 +161,17 @@ const addToCart = (e) => {
 
     document.body.insertAdjacentHTML("afterbegin", overlay);
 
-    const blockDiscription = document
-      .querySelector(".description-product")
-      .addEventListener("click", (evt) => checkClick(evt));
+    const overlayHtml = document.querySelector(".overlay");
+    overlayHtml.addEventListener("click", () => overlayHtml.remove());
 
-    overlay = document.querySelector(".overlay");
-    overlay.addEventListener("click", () => {
-      document.body.classList.remove("block-scroll"); //unlock scroll
-      overlay.remove();
+    const blockDescription = document.querySelector(".description-product");
+    blockDescription.addEventListener("click", function (eBlock) {
+      eBlock.stopPropagation();
+      if (eBlock.target.dataset.close === "close") overlayHtml.remove();
+
+      checkClick(eBlock);
+      console.log("click block des");
     });
-    const close = document
-      .querySelector(".close")
-      .addEventListener("click", (blockDiscription) => {
-        document.body.classList.remove("block-scroll"); //unlock scroll
-        blockDiscription.srcElement.parentElement.parentElement.remove();
-      });
   }
 };
 
@@ -183,7 +179,6 @@ glassesSection.addEventListener("click", addToCart);
 
 //========= Sale =======
 const cards = document.querySelectorAll(".elem-gl");
-console.log(cards[2].children[3].innerText);
 
 function createMark(property) {
   property.price = property.card.children[3].innerText;
