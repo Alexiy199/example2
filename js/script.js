@@ -145,7 +145,9 @@ const addToCart = (e) => {
 		<span class="discripton-txt">Здесь доджно быть описание, но это только пример =)</span> 
 	<div class="block-info-more"> 
 		<span class="modal-txt-price">${txtPrice.innerText}</span>
-		${e.target.firstElementChild.className === "sale" ? salePrice.innerText : ""}
+		<span class="x">${
+      e.target.firstElementChild.className === "sale" ? salePrice.innerText : ""
+    }</span>
 		<div class="box-cart" data-elemgl="addtocart">
 			<img src="./img/cartpng.png" alt="img" width="20px" height="20px" class="cart">
 		</div>
@@ -161,6 +163,9 @@ const addToCart = (e) => {
       let modTxtPrice = overlayHtml.querySelector(".modal-txt-price");
       modTxtPrice.style =
         "background: white; text-decoration: line-through; color: gray;";
+
+      let modSalePrice = overlayHtml.querySelector(".x");
+      modSalePrice.classList.add("mod-sale-price");
     }
 
     overlayHtml.addEventListener("click", () => {

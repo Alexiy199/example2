@@ -704,7 +704,7 @@ main .information-feedbzck .block-contacts :nth-child(8) {
           transform: translate(-105px, 0px);
 }
 
-/* MODAL WINDOW */
+/* MODAL WINDOW js */
 .overlay {
   position: fixed;
   left: 0;
@@ -716,6 +716,7 @@ main .information-feedbzck .block-contacts :nth-child(8) {
 }
 
 .overlay .description-product {
+  min-height: 240px;
   text-align: center;
   position: absolute;
   left: 50%;
@@ -758,10 +759,21 @@ main .information-feedbzck .block-contacts :nth-child(8) {
   right: 30%;
 }
 
-.overlay .description-product .block-info-more span {
+.overlay .description-product .block-info-more .modal-txt-price {
   display: inline-block;
   background-color: #4a9f3a;
   padding: 1px 4px;
+}
+
+.overlay .description-product .block-info-more .mod-sale-price {
+  display: inline-block;
+  background-color: #ff0000;
+  font-family: OpenSans;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px 5px;
+  padding: 3px;
 }
 
 .overlay .description-product .block-info-more div {
@@ -834,10 +846,6 @@ main .information-feedbzck .block-contacts :nth-child(8) {
   padding: 6px 0px;
   -webkit-transform: rotate(-45deg) translate(-35%, 0%);
           transform: rotate(-45deg) translate(-35%, 0%);
-}
-
-.text-dec {
-  color: gray;
 }
 
 footer {
