@@ -229,6 +229,7 @@ header .block-search .btn-search:active {
 }
 
 header .block-search .icon {
+  position: relative;
   padding: 4px;
   margin: 0px 5px;
   background-color: green;
@@ -239,6 +240,15 @@ header .block-search .icon {
 
 header .block-search .icon:hover {
   cursor: pointer;
+}
+
+header .block-search .sale-count {
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  background-color: #22aa20;
 }
 
 header .block-search span {
@@ -253,8 +263,8 @@ header .block-search span {
   font-family: OpenSans;
   color: #fff;
   font-size: 14px;
-  -webkit-transform: translate(-45%, -3%);
-          transform: translate(-45%, -3%);
+  -webkit-transform: translate(-45%, -50%);
+          transform: translate(-45%, -50%);
 }
 
 header .block-search .in-cart {
@@ -824,6 +834,10 @@ main .information-feedbzck .block-contacts :nth-child(8) {
   padding: 6px 0px;
   -webkit-transform: rotate(-45deg) translate(-35%, 0%);
           transform: rotate(-45deg) translate(-35%, 0%);
+}
+
+.text-dec {
+  color: gray;
 }
 
 footer {

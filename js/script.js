@@ -130,28 +130,22 @@ const addToCart = (e) => {
 
   if (e.target.dataset.elemgl === "cardglasses") {
     document.body.classList.add("block-scroll"); //block scroll
-    let imgSrc,
-      txtPrice = "";
 
-    if (e.target.children[0].dataset.mark === "sale") {
-      imgSrc = e.target.children[2].src;
-      txtPrice = e.target.children[5].innerText;
-    } else if (e.target.children[0].dataset.mark === "new") {
-      imgSrc = e.target.children[1].src;
-      txtPrice = e.target.children[4].innerText;
-    } else {
-      imgSrc = e.target.children[0].src;
-      txtPrice = e.target.children[3].innerText;
-    }
+    let imgSrc = e.target.querySelector(".glass-img").src,
+      txtPrice = e.target.querySelector(".price-gl"),
+      nameGl = e.target.querySelector(".name-gl").innerText,
+      salePrice = e.target.querySelector(".sale-price");
 
     const overlay = `<div class="overlay">
 	<div class="description-product">
 		<span class="close" data-close="close">&#10060;</span>
 		<img src="${imgSrc}" alt="img">
 		<span class="description-title">Description</span> <br> <br>
+		<span>${nameGl}</span> <br> <br>
 		<span class="discripton-txt">Здесь доджно быть описание, но это только пример =)</span> 
 	<div class="block-info-more"> 
-		<span>${txtPrice}</span>
+		<span class="modal-txt-price">${txtPrice.innerText}</span>
+		${e.target.firstElementChild.className === "sale" ? salePrice.innerText : ""}
 		<div class="box-cart" data-elemgl="addtocart">
 			<img src="./img/cartpng.png" alt="img" width="20px" height="20px" class="cart">
 		</div>
@@ -162,6 +156,13 @@ const addToCart = (e) => {
     document.body.insertAdjacentHTML("afterbegin", overlay);
 
     const overlayHtml = document.querySelector(".overlay");
+
+    if (e.target.firstElementChild.className === "sale") {
+      let modTxtPrice = overlayHtml.querySelector(".modal-txt-price");
+      modTxtPrice.style =
+        "background: white; text-decoration: line-through; color: gray;";
+    }
+
     overlayHtml.addEventListener("click", () => {
       document.body.classList.remove("block-scroll"); //unlock scroll
       overlayHtml.remove();
@@ -170,8 +171,10 @@ const addToCart = (e) => {
     const blockDescription = document.querySelector(".description-product");
     blockDescription.addEventListener("click", function (eBlock) {
       eBlock.stopPropagation();
-      document.body.classList.remove("block-scroll"); //unlock scroll
-      if (eBlock.target.dataset.close === "close") overlayHtml.remove();
+      if (eBlock.target.dataset.close === "close") {
+        document.body.classList.remove("block-scroll"); //unlock scroll
+        overlayHtml.remove();
+      }
 
       checkClick(eBlock);
     });
@@ -181,7 +184,10 @@ const addToCart = (e) => {
 glassesSection.addEventListener("click", addToCart);
 
 //========= Sale =======
-const cards = document.querySelectorAll(".elem-gl");
+const cards = document.querySelectorAll(".elem-gl"),
+  iconSale = document.querySelector(".icon");
+
+let saleCount = 0;
 
 function createMark(property) {
   property.price = property.card.children[3].innerText;
@@ -193,6 +199,7 @@ function createMark(property) {
     let salePrice = `<span class="sale-price">$ ${
       property.price - property.price * property.percent
     } </span>`;
+
     return salePrice;
   };
 
@@ -246,3 +253,17 @@ const newGl3 = {
 };
 
 createMark(newGl3);
+//============== last function ==
+writeCountSale();
+
+function writeCountSale() {
+  cards.forEach((elem) => {
+    if (elem.firstElementChild.className === "sale") saleCount++;
+  });
+  if (saleCount > 0) {
+    iconSale.insertAdjacentHTML(
+      "afterbegin",
+      `<span class="sale-count">${saleCount}</span>`
+    );
+  }
+}

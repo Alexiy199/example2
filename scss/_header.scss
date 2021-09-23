@@ -160,6 +160,7 @@ header{
 			}
 		}
 		.icon{
+			position: relative;
 			padding: 4px;
 			margin: 0px 5px;
 			background-color: green;
@@ -169,6 +170,13 @@ header{
 			&:hover{
 				cursor: pointer;
 			}
+		}
+		.sale-count{
+			position: absolute;
+			right: 0;
+			top: 0;
+			transform: translate(50%, -50%);
+			background-color: #22aa20;
 		}
 		span{
 			display: block;
@@ -180,7 +188,7 @@ header{
 			padding: 2px 0px;
 			margin: 0;
 			@include f-fam(OpenSans, #fff, 14px);
-			transform: translate(-45%, -3%);
+			transform: translate(-45%, -50%);
 		}
 		.in-cart{
 			background-color: red;
