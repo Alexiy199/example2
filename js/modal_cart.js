@@ -52,7 +52,6 @@ cartWhite.addEventListener("click", function () {
   );
 
   if (sumPrice === 0) {
-    cartContent.getElementsByTagName("button").disabled;
     cartContent.innerHTML = `<span class="empty">Empty</span>`;
   }
 
