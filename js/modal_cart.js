@@ -37,13 +37,17 @@ cartWhite.addEventListener("click", function () {
           );
         }
 
-        element.querySelector(".box-cart").remove();
         cartContent.insertAdjacentHTML(
           "beforeend",
           `<div class="box-content-cart">${element.innerHTML}</div>`
         );
       }
     });
+  }
+
+  let addedImg = cartContent.querySelectorAll(".box-cart");
+  if (addedImg.length > 0) {
+    addedImg.forEach((element) => element.remove());
   }
 
   sumBox.insertAdjacentHTML(
