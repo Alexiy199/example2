@@ -331,19 +331,111 @@ main{
 				}
 			}
 		}
-		.close{
-			position: absolute;
-			top: 0;
-			right: 4px;
-			font-size: 22px;
-			font-weight: 400;
-			&:hover{
-				cursor: pointer;
-			}
-		}
 	}
 }
+
+.close{
+	position: absolute;
+	top: 0;
+	right: 4px;
+	font-size: 22px;
+	font-weight: 400;
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+.modal-cart{
+	position: relative;
+	width: 460px;
+	height: 75vh;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	background-color: #fff;
+	overflow-y: scroll;
+	.header-cart{
+		position: relative;
+		position: sticky;
+		top: 0;
+		left: 0;
+		width: 450px;
+		height: 24px;
+		background-color: darkblue;
+		z-index: 3;
+	}
+	.box-sum{
+		position: sticky;
+		left: 257px;
+		top: 75px;
+		width: 185px;
+		height: 100px;
+		background-color: #fff;
+		box-shadow: 3px 3px 6px #999999;
+		z-index: 3;
+		> span{
+			font-weight: bold;
+			color: skyblue;
+		}
+		button{
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 0%);
+			background-color: #00aa00;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+		}
+		.sum-price{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			@include f-fam(OpenSans, #00aa00, 16px);
+			font-weight: 700;
+		}
+	}
+	.box-content-cart{
+		margin: 0px 10px;
+		position: relative;
+		transform: translate(0%, -32%);
+		overflow: hidden;
+		box-shadow: 3px 3px 6px #999999;
+		border-radius: 4px;
+		width: 233px;
+		height: 229px;
+		line-height: 17px;
+		> .glass-img{
+			pointer-events: none;
+			width: 233px;
+			height: 175px;
+			margin: 0;
+		}
+		.name-gl{
+			margin: 0px 4px 1px 4px;
+			@include f-fam(OpenSans, #000, 18px);
+		}
+		.price-gl{
+			margin: 0px 4px 1px 4px;
+			@include f-fam(OpenSans, #7db122, 18px);
+		}
+	}
+	.empty{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		@include f-fam(Georgia, #999, 26px);
+		letter-spacing: 3px;
+		opacity: 0.7;
+	}
+}
+
 /* FOR JS */
+
 .block-scroll{
 	overflow: hidden;
 }

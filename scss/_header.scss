@@ -61,34 +61,8 @@ header{
 				cursor: pointer;
 			}
 		}
-		.menu-1 {
-			width: 270px;
-			height: 13px;
-			padding: 0;
-			position: relative;
-			display: flex;
-			margin: 0;
-			li{
-				margin: 0px 8px 0px 0px;
-				.sub-menu-1{@extend %sub-menu;}
-				&:hover > .sub-menu-1{
-					display: block;
-				}
-				.sub2-menu-1{
-					@extend %sub-menu;
-					left: 53%;
-				}
-				&:hover > .sub2-menu-1{
-					display: block;
-				}
-				.down-menu{
-					border: none;
-					margin: 0px 0px 0px 4px;
-				}
-			}
-		}
 		.menu-2 {
-			margin: 0px 0px 0px 418px;
+			margin: 0 auto;
 			width: 357px;
 			height: 13px;
 			display: flex;

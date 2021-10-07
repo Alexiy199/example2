@@ -13,25 +13,6 @@ body {
   box-sizing: border-box;
 }
 
-header nav .menu-1 li .sub-menu-1, header nav .menu-1 li .sub2-menu-1 {
-  position: absolute;
-  left: 9%;
-  top: 5px;
-  padding-top: 10px;
-  display: none;
-}
-
-header nav .menu-1 li .sub-menu-1 li, header nav .menu-1 li .sub2-menu-1 li {
-  border-radius: 4px;
-  padding: 2px;
-  background-color: gray;
-}
-
-header nav .menu-1 li .sub-menu-1 li:hover, header nav .menu-1 li .sub2-menu-1 li:hover {
-  background-color: silver;
-  color: black;
-}
-
 header .slider .btn-slider-left, header .slider .btn-slider-right {
   z-index: 3;
   display: none;
@@ -84,40 +65,8 @@ header nav li:hover {
   cursor: pointer;
 }
 
-header nav .menu-1 {
-  width: 270px;
-  height: 13px;
-  padding: 0;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0;
-}
-
-header nav .menu-1 li {
-  margin: 0px 8px 0px 0px;
-}
-
-header nav .menu-1 li:hover > .sub-menu-1 {
-  display: block;
-}
-
-header nav .menu-1 li .sub2-menu-1 {
-  left: 53%;
-}
-
-header nav .menu-1 li:hover > .sub2-menu-1 {
-  display: block;
-}
-
-header nav .menu-1 li .down-menu {
-  border: none;
-  margin: 0px 0px 0px 4px;
-}
-
 header nav .menu-2 {
-  margin: 0px 0px 0px 418px;
+  margin: 0 auto;
   width: 357px;
   height: 13px;
   display: -webkit-box;
@@ -784,7 +733,7 @@ main .information-feedbzck .block-contacts :nth-child(8) {
   pointer-events: none;
 }
 
-.overlay .description-product .close {
+.close {
   position: absolute;
   top: 0;
   right: 4px;
@@ -792,8 +741,124 @@ main .information-feedbzck .block-contacts :nth-child(8) {
   font-weight: 400;
 }
 
-.overlay .description-product .close:hover {
+.close:hover {
   cursor: pointer;
+}
+
+.modal-cart {
+  position: relative;
+  width: 460px;
+  height: 75vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: #fff;
+  overflow-y: scroll;
+}
+
+.modal-cart .header-cart {
+  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 450px;
+  height: 24px;
+  background-color: darkblue;
+  z-index: 3;
+}
+
+.modal-cart .box-sum {
+  position: -webkit-sticky;
+  position: sticky;
+  left: 257px;
+  top: 75px;
+  width: 185px;
+  height: 100px;
+  background-color: #fff;
+  -webkit-box-shadow: 3px 3px 6px #999999;
+          box-shadow: 3px 3px 6px #999999;
+  z-index: 3;
+}
+
+.modal-cart .box-sum > span {
+  font-weight: bold;
+  color: skyblue;
+}
+
+.modal-cart .box-sum button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+  background-color: #00aa00;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal-cart .box-sum .sum-price {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: OpenSans;
+  color: #00aa00;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal-cart .box-content-cart {
+  margin: 0px 10px;
+  position: relative;
+  -webkit-transform: translate(0%, -32%);
+          transform: translate(0%, -32%);
+  overflow: hidden;
+  -webkit-box-shadow: 3px 3px 6px #999999;
+          box-shadow: 3px 3px 6px #999999;
+  border-radius: 4px;
+  width: 233px;
+  height: 229px;
+  line-height: 17px;
+}
+
+.modal-cart .box-content-cart > .glass-img {
+  pointer-events: none;
+  width: 233px;
+  height: 175px;
+  margin: 0;
+}
+
+.modal-cart .box-content-cart .name-gl {
+  margin: 0px 4px 1px 4px;
+  font-family: OpenSans;
+  color: #000;
+  font-size: 18px;
+}
+
+.modal-cart .box-content-cart .price-gl {
+  margin: 0px 4px 1px 4px;
+  font-family: OpenSans;
+  color: #7db122;
+  font-size: 18px;
+}
+
+.modal-cart .empty {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: Georgia;
+  color: #999;
+  font-size: 26px;
+  letter-spacing: 3px;
+  opacity: 0.7;
 }
 
 /* FOR JS */

@@ -29,7 +29,6 @@ function toRight() {
 
 const slides2 = document.querySelectorAll(".img-slider-2"),
   dots2 = document.querySelectorAll(".dote-2");
-console.log(dots2);
 
 const currentDote = "border: 4px solid blue; background-color: green;";
 const defDote = "border: 4px solid #99999f; background: white;";
@@ -89,38 +88,50 @@ setInterval(() => {
 
 //============= CART ===================================
 const glassesSection = document.querySelector(".glasses"),
-  cartElem = document.querySelector(".cart-count");
-
-let countCart = 0;
+  cartElem = document.querySelector(".cart-count"),
+  arrCart = [];
 
 const checkClick = function (e) {
   if (e.target.dataset.elemgl === "addtocart") {
-    // console.log(e.target.children[0].dataset);
-    let blockImgCard = e.srcElement;
+    //console.log(e.target.children[0]);
+    let blockImgCard = e.srcElement,
+      nameGlasses =
+        blockImgCard.parentElement.className === "block-info-more"
+          ? blockImgCard.parentElement.parentElement.querySelector(".name-gl")
+              .innerText
+          : blockImgCard.parentElement.querySelector(".name-gl").innerText;
 
     if (e.target.children[0].dataset.add === "added") {
       e.target.children[0].remove();
-      countCart--;
-      if (countCart <= 0) cartElem.classList.remove("in-cart");
-      cartElem.innerText = `${countCart}`;
+      let idxDel = arrCart.findIndex((element) => element === nameGlasses);
+      arrCart.splice(idxDel, 1);
+      console.log("del idx =", idxDel, arrCart);
+
+      if (arrCart.length <= 0) cartElem.classList.remove("in-cart");
+
+      cartElem.innerText = arrCart.length;
       blockImgCard.style = "background: #ffa500;";
       blockImgCard.insertAdjacentHTML(
         "afterbegin",
-        `<img src="./img/cartpng.png" alt="img" width="25px" height="25px" class="cart">`
+        `<img src="./img/cartpng.png" alt="img"  width="20px" height="20px" class="cart">`
       );
       return;
     }
 
     e.target.children[0].remove();
-
     blockImgCard.style = "background: #fff;";
     blockImgCard.insertAdjacentHTML(
       "afterbegin",
-      `<img src="./img/add.png" alt="img" width="25px" height="25px" data-add="added" class="cart">`
+      `<img src="./img/add.png" alt="img"  width="20px" height="20px" class="cart" data-add="added">`
     );
+
+    //================== element move to cart ===============
+    arrCart.push(nameGlasses);
+    // console.log(blockImgCard.parentElement);
+
     cartElem.classList.add("in-cart");
-    countCart++;
-    cartElem.innerText = `${countCart}`;
+    console.log("add");
+    cartElem.innerText = arrCart.length;
     return;
   }
 };
@@ -136,12 +147,12 @@ const addToCart = (e) => {
       nameGl = e.target.querySelector(".name-gl").innerText,
       salePrice = e.target.querySelector(".sale-price");
 
-    const overlay = `<div class="overlay">
+    const overlay = `<div class="overlay" data-close="close">
 	<div class="description-product">
 		<span class="close" data-close="close">&#10060;</span>
 		<img src="${imgSrc}" alt="img">
 		<span class="description-title">Description</span> <br> <br>
-		<span>${nameGl}</span> <br> <br>
+		<span class="name-gl">${nameGl}</span> <br> <br>
 		<span class="discripton-txt">Здесь доджно быть описание, но это только пример =)</span> 
 	<div class="block-info-more"> 
 		<span class="modal-txt-price">${txtPrice.innerText}</span>
@@ -168,19 +179,67 @@ const addToCart = (e) => {
       modSalePrice.classList.add("mod-sale-price");
     }
 
-    overlayHtml.addEventListener("click", () => {
-      document.body.classList.remove("block-scroll"); //unlock scroll
-      overlayHtml.remove();
+    const blockDescription = document.querySelector(".description-product");
+    let nameGlDescription = blockDescription.querySelector(".name-gl");
+
+    arrCart.forEach((item) => {
+      if (nameGlDescription.innerText === item) {
+        let boxCart = blockDescription.lastElementChild.lastElementChild;
+        boxCart.children[0].remove();
+        boxCart.style = "background: #fff;";
+        boxCart.insertAdjacentHTML(
+          "afterbegin",
+          `<img src="./img/add.png" alt="img"  width="20px" height="20px" class="cart" data-add="added">`
+        );
+      }
     });
 
-    const blockDescription = document.querySelector(".description-product");
-    blockDescription.addEventListener("click", function (eBlock) {
+    overlayHtml.addEventListener("click", function (eBlock) {
       eBlock.stopPropagation();
       if (eBlock.target.dataset.close === "close") {
         document.body.classList.remove("block-scroll"); //unlock scroll
         overlayHtml.remove();
-      }
 
+        let matchName = arrCart.find(
+          (elem) => elem === nameGlDescription.innerText
+        );
+        console.log(matchName);
+        if (matchName === undefined) {
+          cards.forEach((card) => {
+            if (
+              card.querySelector(".name-gl").innerText ===
+              nameGlDescription.innerText
+            ) {
+              let delElem = card.querySelector(".box-cart");
+              delElem.style = "background: #ffa500";
+              delElem.children[0].remove();
+              delElem.insertAdjacentHTML(
+                "afterbegin",
+                `<img src="./img/cartpng.png" alt="img"  width="20px" height="20px" class="cart" data-add="added">`
+              );
+              console.log("deleted");
+            }
+          });
+        }
+        return;
+      }
+      if (eBlock.target.dataset.elemgl === "addtocart") {
+        cards.forEach((card) => {
+          if (
+            card.querySelector(".name-gl").innerText ===
+            nameGlDescription.innerText
+          ) {
+            let addElem = card.querySelector(".box-cart");
+            addElem.style = "background: #fff";
+            addElem.children[0].remove();
+            addElem.insertAdjacentHTML(
+              "afterbegin",
+              `<img src="./img/add.png" alt="img"  width="20px" height="20px" class="cart" data-add="added">`
+            );
+          }
+        });
+        console.log("add to cart");
+      }
       checkClick(eBlock);
     });
   }
@@ -189,6 +248,7 @@ const addToCart = (e) => {
 glassesSection.addEventListener("click", addToCart);
 
 //========= Sale =======
+
 const cards = document.querySelectorAll(".elem-gl"),
   iconSale = document.querySelector(".icon");
 
@@ -201,9 +261,10 @@ function createMark(property) {
   const saleActive = () => {
     property.card.children[3].style =
       "text-decoration: line-through; color: gray;";
-    let salePrice = `<span class="sale-price">$ ${
+
+    let salePrice = `<span class="sale-price">$ ${Math.ceil(
       property.price - property.price * property.percent
-    } </span>`;
+    )} </span>`;
 
     return salePrice;
   };
