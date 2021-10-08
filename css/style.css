@@ -292,7 +292,7 @@ header .dote-2 {
 }
 
 /*------------- MEDIA -----------*/
-@media (max-width: 767px) {
+@media (min-width: 767px) {
   header {
     max-width: 767px;
     max-height: 370px;
@@ -686,7 +686,7 @@ main .information-feedback .block-contacts :nth-child(8) {
 }
 
 /* @MEDIA */
-@media (max-width: 767px) {
+@media (min-width: 767px) {
   main {
     max-width: 768px;
   }
@@ -815,7 +815,7 @@ main .information-feedback .block-contacts :nth-child(8) {
 .modal-cart {
   position: relative;
   width: 460px;
-  height: 75vh;
+  min-height: 450px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1025,7 +1025,7 @@ footer ul :last-child {
   border-right: none;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 767px) {
   footer {
     max-width: 767px;
   }

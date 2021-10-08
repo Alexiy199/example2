@@ -234,7 +234,7 @@ header{
 
 /*------------- MEDIA -----------*/
 
-@media (max-width: 767px) {
+@media (min-width: 767px) {
 	header{
 		max-width: 767px;
 		max-height: 370px;
