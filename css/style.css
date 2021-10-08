@@ -292,16 +292,16 @@ header .dote-2 {
 }
 
 /*------------- MEDIA -----------*/
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   header {
-    max-width: 768px;
+    max-width: 767px;
     max-height: 370px;
   }
   header nav {
-    max-width: 768px;
+    max-width: 767px;
   }
   header .slider {
-    max-width: 768px;
+    max-width: 767px;
     max-height: 200px;
   }
   header .img-slide {
@@ -686,7 +686,7 @@ main .information-feedback .block-contacts :nth-child(8) {
 }
 
 /* @MEDIA */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   main {
     max-width: 768px;
   }
@@ -1025,8 +1025,8 @@ footer ul :last-child {
   border-right: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   footer {
-    max-width: 768px;
+    max-width: 767px;
   }
 }
