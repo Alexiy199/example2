@@ -231,3 +231,36 @@ header{
 		background-color: #fff;
 	}
 }
+
+/*------------- MEDIA -----------*/
+
+@media (max-width: 768px) {
+	header{
+		max-width: 768px;
+		max-height: 370px;
+		nav{
+			max-width: 768px;
+		}
+		.slider{
+			max-width: 768px;
+			max-height: 200px;
+		}
+		.img-slide{
+			max-width: 768px;
+			max-height: 200px;
+		}
+		h1{
+			font-size: 22px;
+			margin: 20px; 
+		}
+		.nav2{
+			left: 12%;
+			top: 7%;
+		}
+		.block-search{
+			max-width: 365px;
+			right: 0;
+			top: 15%;
+		}
+	}
+}

@@ -291,6 +291,38 @@ header .dote-2 {
   background-color: #fff;
 }
 
+/*------------- MEDIA -----------*/
+@media (max-width: 768px) {
+  header {
+    max-width: 768px;
+    max-height: 370px;
+  }
+  header nav {
+    max-width: 768px;
+  }
+  header .slider {
+    max-width: 768px;
+    max-height: 200px;
+  }
+  header .img-slide {
+    max-width: 768px;
+    max-height: 200px;
+  }
+  header h1 {
+    font-size: 22px;
+    margin: 20px;
+  }
+  header .nav2 {
+    left: 12%;
+    top: 7%;
+  }
+  header .block-search {
+    max-width: 365px;
+    right: 0;
+    top: 15%;
+  }
+}
+
 main .glasses .block-ft-product .elem-gl .box-cart, .overlay .description-product .block-info-more div {
   text-align: center;
   position: absolute;
@@ -509,7 +541,7 @@ main .block-ft-glass .block-subscribe .btn-subscribe {
   font-size: 14px;
 }
 
-main .information-feedbzck {
+main .information-feedback {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -519,14 +551,14 @@ main .information-feedbzck {
   background-color: #4cb1ca;
 }
 
-main .information-feedbzck .txt-block-info {
+main .information-feedback .txt-block-info {
   font-family: OpenSans;
   color: #fff;
   font-size: 21px;
   text-transform: uppercase;
 }
 
-main .information-feedbzck .circle-white {
+main .information-feedback .circle-white {
   width: 65px;
   height: 65px;
   border-radius: 50%;
@@ -536,11 +568,11 @@ main .information-feedbzck .circle-white {
   margin: 20px 15px;
 }
 
-main .information-feedbzck .circle-white:hover {
+main .information-feedback .circle-white:hover {
   cursor: pointer;
 }
 
-main .information-feedbzck .block-info-head {
+main .information-feedback .block-info-head {
   text-align: center;
   width: 680px;
   height: 106px;
@@ -548,52 +580,52 @@ main .information-feedbzck .block-info-head {
   background-color: #39a0b9;
 }
 
-main .information-feedbzck .block-info-head > .txt-block-info {
+main .information-feedback .block-info-head > .txt-block-info {
   display: inline-block;
   -webkit-transform: translate(-15%, -250%);
           transform: translate(-15%, -250%);
 }
 
-main .information-feedbzck .block-info-head:hover {
+main .information-feedback .block-info-head:hover {
   cursor: pointer;
 }
 
-main .information-feedbzck .block-facebook {
+main .information-feedback .block-facebook {
   width: 233px;
   margin: 15px 15px 5px 70px;
 }
 
-main .information-feedbzck .block-facebook .txt-facebook {
+main .information-feedback .block-facebook .txt-facebook {
   font-family: OpenSans;
   color: #fff;
   font-size: 13px;
 }
 
-main .information-feedbzck .block-facebook .photo-face {
+main .information-feedback .block-facebook .photo-face {
   width: 50px;
   height: 49px;
   margin: 5px 4px 0px 0px;
 }
 
-main .information-feedbzck .block-twitter {
+main .information-feedback .block-twitter {
   text-align: left;
   width: 270px;
   margin: 15px 0px 0px 80px;
 }
 
-main .information-feedbzck .block-twitter .img-twit {
+main .information-feedback .block-twitter .img-twit {
   width: 20px;
   height: 17px;
 }
 
-main .information-feedbzck .block-twitter .txt-twit {
+main .information-feedback .block-twitter .txt-twit {
   font-family: OpenSans;
   color: #fff;
   font-size: 14px;
   margin: 10px 5px;
 }
 
-main .information-feedbzck .block-twitter .circle-white {
+main .information-feedback .block-twitter .circle-white {
   float: left;
   text-align: center;
   width: 40px;
@@ -602,12 +634,12 @@ main .information-feedbzck .block-twitter .circle-white {
   margin: 0;
 }
 
-main .information-feedbzck .information {
+main .information-feedback .information {
   width: 233px;
   margin: 15px 50px;
 }
 
-main .information-feedbzck .information a {
+main .information-feedback .information a {
   text-decoration: none;
   font-family: OpenSans;
   color: #fff;
@@ -615,19 +647,19 @@ main .information-feedbzck .information a {
   line-height: 1.4;
 }
 
-main .information-feedbzck .block-contacts {
+main .information-feedback .block-contacts {
   position: relative;
   width: 233px;
   margin: 15px 0px 0px 80px;
 }
 
-main .information-feedbzck .block-contacts span {
+main .information-feedback .block-contacts span {
   font-family: OpenSans;
   color: #fff;
   font-size: 19px;
 }
 
-main .information-feedbzck .block-contacts > .circle-white {
+main .information-feedback .block-contacts > .circle-white {
   position: absolute;
   bottom: 5%;
   right: 0%;
@@ -638,19 +670,53 @@ main .information-feedbzck .block-contacts > .circle-white {
   margin: 0;
 }
 
-main .information-feedbzck .block-contacts :nth-child(6) {
+main .information-feedback .block-contacts :nth-child(6) {
   -webkit-transform: translate(-35px, 0px);
           transform: translate(-35px, 0px);
 }
 
-main .information-feedbzck .block-contacts :nth-child(7) {
+main .information-feedback .block-contacts :nth-child(7) {
   -webkit-transform: translate(-70px, 0px);
           transform: translate(-70px, 0px);
 }
 
-main .information-feedbzck .block-contacts :nth-child(8) {
+main .information-feedback .block-contacts :nth-child(8) {
   -webkit-transform: translate(-105px, 0px);
           transform: translate(-105px, 0px);
+}
+
+/* @MEDIA */
+@media (max-width: 768px) {
+  main {
+    max-width: 768px;
+  }
+  main .glasses {
+    margin: 10px 15px;
+  }
+  main .glasses .block-ft-product {
+    max-width: 486px;
+  }
+  main .block-ft-glass {
+    right: 1%;
+  }
+  .information-feedback {
+    max-width: 768px;
+  }
+  .information-feedback .circle-white {
+    width: 35px;
+    height: 35px;
+  }
+  .information-feedback .block-info-head {
+    max-width: 370px;
+    margin: 10px auto;
+    padding: 0;
+  }
+  .information-feedback .block-info-head .txt-block-info {
+    font-size: 15px;
+    margin: 10px 110px;
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
 }
 
 /* MODAL WINDOW js */
@@ -733,6 +799,7 @@ main .information-feedbzck .block-contacts :nth-child(8) {
   pointer-events: none;
 }
 
+/* FOR JS */
 .close {
   position: absolute;
   top: 0;
@@ -861,7 +928,6 @@ main .information-feedbzck .block-contacts :nth-child(8) {
   opacity: 0.7;
 }
 
-/* FOR JS */
 .block-scroll {
   overflow: hidden;
 }
@@ -957,4 +1023,10 @@ footer ul li a {
 
 footer ul :last-child {
   border-right: none;
+}
+
+@media (max-width: 768px) {
+  footer {
+    max-width: 768px;
+  }
 }
