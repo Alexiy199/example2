@@ -66,3 +66,31 @@ cartWhite.addEventListener("click", function () {
     if (eCart.target.dataset.close === "close") overlay.remove();
   });
 });
+
+//======== BURGER MENU ================
+
+const menuBrg = document.querySelector(".mob-menu-brg"),
+  menu2 = document.querySelector(".menu-2"),
+  nav2 = document.querySelector(".nav2");
+
+menuBrg.addEventListener("click", function () {
+  menu2.classList.add("menu-2-on");
+  nav2.classList.add("nav2-on");
+
+  menu2.insertAdjacentHTML(
+    "beforebegin",
+    `<span class="close-menu">&#10060;</span>`
+  );
+
+  menuBrg.style = "display: none;";
+
+  let close = document.querySelector(".close-menu");
+  close.addEventListener("click", () => {
+    menu2.classList.remove("menu-2-on");
+    nav2.classList.remove("nav2-on");
+    close.remove();
+    menuBrg.style = "display: block;";
+  });
+
+  console.log(menu2);
+});

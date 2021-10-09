@@ -271,8 +271,9 @@ main{
 	}
 }
 
-/* @MEDIA */
-@media (min-width: 767px) {
+/*------------------------ @MEDIA -----------------*/
+
+@media (max-width: 770px) {
 	main{
 		max-width: 768px;
 		.glasses{
@@ -315,13 +316,13 @@ main{
 	width: 100%;
 	height: 100%;
 	.description-product{
+		width: 75vw;
 		min-height: 240px;
 		text-align: center;
 		position: absolute;
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
-		width: 50vw;
 		background-color: #fff;
 		> img{
 			float: left;
