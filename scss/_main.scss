@@ -273,7 +273,7 @@ main{
 
 /*------------------------ @MEDIA -----------------*/
 
-@media (max-width: 770px) {
+@media (max-width: 1400px) {
 	main{
 		max-width: 768px;
 		.glasses{
@@ -300,6 +300,62 @@ main{
 				font-size: 15px;
 				margin: 10px 110px;
 				transform: translate(0%, 0%);
+			}
+		}
+	}
+}
+
+	//----------- phone ---------------
+
+@media (max-width: 415px) {
+	main{
+		max-width: 415px;
+		.glasses{
+			margin: 5px 10px;
+			.block-ft-product{
+				max-width: 415px;
+				.elem-gl{
+					width: 185px;
+					height: 190px;
+					.glass-img{
+						width: 186px;
+						height: 150px;
+					}
+				}
+			}
+		}
+		.block-ft-glass{
+			position: static;
+			margin: 50px auto;
+		}
+		.information-feedback{
+			flex-direction: column;
+			justify-content: center;
+			max-width: 415px;
+			.block-info-head{
+				margin: 5px auto;
+			}
+			.block-contacts{
+				text-align: left;
+				height: 200px;
+				> .circle-white{
+					bottom: 0;
+					//transform: translate(0%, 0%);
+				}
+			}
+		}
+	}
+	.overlay{
+		.description-product{
+			width: 70vw;
+			height: 70vh;
+			text-align: center;
+			padding: 0;
+			> img{
+				float: none;
+				margin: 0 auto;
+				width: 260px;
+				height: 300px;
 			}
 		}
 	}

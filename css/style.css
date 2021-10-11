@@ -296,7 +296,7 @@ header .dote-2 {
 }
 
 /*------------- MEDIA -----------*/
-@media (max-width: 770px) {
+@media (max-width: 1400px) {
   header {
     max-width: 767px;
     max-height: 370px;
@@ -389,7 +389,7 @@ header .dote-2 {
   header nav .menu-2-on {
     visibility: visible;
     opacity: 1;
-    width: 100px;
+    width: 200px;
     height: 150px;
   }
   header .slider {
@@ -481,10 +481,10 @@ header .dote-2 {
   header .nav2-on {
     visibility: visible;
     opacity: 1;
-    width: 100px;
+    width: 200px;
     height: 120px;
     top: 125px;
-    left: 206px;
+    left: 106px;
   }
 }
 
@@ -851,7 +851,7 @@ main .information-feedback .block-contacts :nth-child(8) {
 }
 
 /*------------------------ @MEDIA -----------------*/
-@media (max-width: 770px) {
+@media (max-width: 1400px) {
   main {
     max-width: 768px;
   }
@@ -881,6 +881,62 @@ main .information-feedback .block-contacts :nth-child(8) {
     margin: 10px 110px;
     -webkit-transform: translate(0%, 0%);
             transform: translate(0%, 0%);
+  }
+}
+
+@media (max-width: 415px) {
+  main {
+    max-width: 415px;
+  }
+  main .glasses {
+    margin: 5px 10px;
+  }
+  main .glasses .block-ft-product {
+    max-width: 415px;
+  }
+  main .glasses .block-ft-product .elem-gl {
+    width: 185px;
+    height: 190px;
+  }
+  main .glasses .block-ft-product .elem-gl .glass-img {
+    width: 186px;
+    height: 150px;
+  }
+  main .block-ft-glass {
+    position: static;
+    margin: 50px auto;
+  }
+  main .information-feedback {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    max-width: 415px;
+  }
+  main .information-feedback .block-info-head {
+    margin: 5px auto;
+  }
+  main .information-feedback .block-contacts {
+    text-align: left;
+    height: 200px;
+  }
+  main .information-feedback .block-contacts > .circle-white {
+    bottom: 0;
+  }
+  .overlay .description-product {
+    width: 70vw;
+    height: 70vh;
+    text-align: center;
+    padding: 0;
+  }
+  .overlay .description-product > img {
+    float: none;
+    margin: 0 auto;
+    width: 260px;
+    height: 300px;
   }
 }
 
@@ -1190,8 +1246,25 @@ footer ul :last-child {
   border-right: none;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 1400px) {
   footer {
     max-width: 767px;
+  }
+}
+
+@media (max-width: 415px) {
+  footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+    max-width: 415px;
   }
 }

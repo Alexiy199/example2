@@ -237,7 +237,7 @@ header{
 
 /*------------- MEDIA -----------*/
 
-@media (max-width: 770px) {
+@media (max-width: 1400px) {
 	header{
 		max-width: 767px;
 		max-height: 370px;
@@ -323,7 +323,7 @@ header{
 			.menu-2-on{
 				visibility: visible;
 				opacity: 1;
-				width: 100px;
+				width: 200px;
 				height: 150px;
 			}
 		}
@@ -406,10 +406,10 @@ header{
 		.nav2-on{
 			visibility: visible;
 			opacity: 1;
-			width: 100px;
+			width: 200px;
 			height: 120px;
 			top: 125px;
-			left: 206px;
+			left: 106px;
 		}
 	}
 }
