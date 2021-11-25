@@ -440,13 +440,14 @@ main{
 .modal-cart{
 	position: relative;
 	width: 460px;
-	min-height: 450px;
+	height: 75vh;
 	position: absolute;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
 	background-color: #fff;
+	overflow-x: hidden;
 	overflow-y: scroll;
 	.header-cart{
 		position: relative;
@@ -523,6 +524,44 @@ main{
 		@include f-fam(Georgia, #999, 26px);
 		letter-spacing: 3px;
 		opacity: 0.7;
+	}
+}
+
+@media (max-width: 767px) {
+	.modal-cart{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		.box-sum{
+			top: 1%;
+			left: 1%;
+			position: relative;
+		}
+		.box-content-cart{
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			width: 45%;
+			height: 129px;
+			margin: 2px;
+			transform: translate(0, 0);
+			> .glass-img{
+				width: 150px;
+				height: 100px;
+				margin: 0;
+			}
+			.price-gl{
+				position: absolute;
+				top: 0;
+				right: 0;
+				@include f-fam(OpenSans, #7db122, 18px);
+				margin: 0;
+			}
+			.sale-price{
+				left: 65%;
+				bottom: 40px;
+			}
+		}
 	}
 }
 

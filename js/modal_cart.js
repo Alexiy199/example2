@@ -91,6 +91,4 @@ menuBrg.addEventListener("click", function () {
     close.remove();
     menuBrg.style = "display: block;";
   });
-
-  console.log(menu2);
 });
